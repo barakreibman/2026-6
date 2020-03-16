@@ -1,31 +1,59 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="apple-mobile-web-app-title" content="CodePen">
-<title>2026-5</title>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css'>
 <style>
 #firstdiv {
-  background:lightgrey;
-  font-size:30px;
+  background:lightblue;
+}
+
+ol{
+  background:grey;
+}
+
+.correct{
+  background:green;
+}
+
+.incorrect{
+  background:red;
+}
+
+body {
+  color: blue;
+}
+
+h1 {
+  color: Grey;
 }
 </style>
 </head>
 <body translate="no">
-<div class="containter">
+<div class="container">
 <div class="row">
 <div class="col">
-Questions
+<h1>Questions about me:</h1>
+<ol>
+<li> What is my middle name?<input data-correct="Emanuel"></li>
+<li> How many siblings do I have?<input data-correct="2"></li>
+<li> What are my sisters' names? <input data-correct="Moriah and Ari"></li>
+<li> True or False: I speak Esperanto <input data-correct="True"></li>
+<li> Where do I live? <input data-correct="Mercer Island"></li>
+<li> Do I play any sports? <input data-correct="Yes"></li>
+<li> What is my favorite subject? <input data-correct="Science"></li>
+<li> How many languages can I count to ten in? <input data-correct="3"></li>
+<li> What is my favorite color? <input data-correct="Blue"></li>
+<li> True or False: I am allegric to peanut butter <input data-correct="False"></li 
+</ol>
 </div>
 <div class="col">
-Counter: <div id="firstdiv">100</div>
+Counter: <div id="firstdiv"> 100</div>
 </div>
 </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script id="rendered-js">
-console.log("hello world");
+console.log("Hello World!");
 
 $("#firstdiv").text("100");
 
@@ -37,7 +65,28 @@ function countDown(evt){
 }
 
 countDown();
-setInterval(countDown,1000);
+setInterval(countDown, 1000);
+
+console.clear();
+console.log("hello universe!")
+
+$("input").change(onChange);
+
+function onChange(evt){
+  
+ let correct= $(this).data("correct");
+  let response = $(this).val();
+  console.log(correct,response)
+  if(correct == response){
+    console.log("answer correct")
+    $(this).removeClass("incorrect").addClass("correct");
+  } else{
+    console.log("answer incorrect");
+     $(this).removeClass("correct").addClass("incorrect");
+
+  }
+  
+}
     </script>
 </body>
 </html>
